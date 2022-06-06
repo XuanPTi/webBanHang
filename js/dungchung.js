@@ -1,6 +1,6 @@
 var adminInfo = [{
     "username": "admin",
-    "pass": "adadad"
+    "pass": "123456"
 }];
 
 function getListAdmin() {
@@ -77,7 +77,7 @@ function addAlertBox(text, bgcolor, textcolor, time) {
 
     if (textcolor) al.style.color = textcolor;
     if (time)
-        setTimeout(function () {
+        setTimeout(function() {
             al.style.opacity = 0;
             al.style.zIndex = 0;
         }, time);
@@ -99,7 +99,7 @@ function animateCartNumber() {
     cn.style.transform = 'scale(2)';
     cn.style.backgroundColor = 'rgba(255, 0, 0, 0.8)';
     cn.style.color = 'white';
-    setTimeout(function () {
+    setTimeout(function() {
         cn.style.transform = 'scale(1)';
         cn.style.backgroundColor = 'transparent';
         cn.style.color = 'red';
@@ -193,7 +193,7 @@ function logIn(form) {
     // Kiểm tra xem dữ liệu form có khớp với người dùng nào trong danh sách ko
     for (var u of listUser) {
         if (equalUser(newUser, u)) {
-            if(u.off) {
+            if (u.off) {
                 alert('Tài khoản này đang bị khoá. Không thể đăng nhập.');
                 return false;
             }
@@ -288,9 +288,9 @@ function setupEventTaiKhoan() {
 
     // Tạo eventlistener cho input để tạo hiệu ứng label
     // Gồm 2 event onblur, onfocus được áp dụng cho từng input trong list bên trên
-    ['blur', 'focus'].forEach(function (evt) {
+    ['blur', 'focus'].forEach(function(evt) {
         for (var i = 0; i < list.length; i++) {
-            list[i].addEventListener(evt, function (e) {
+            list[i].addEventListener(evt, function(e) {
                 var label = this.previousElementSibling; // lấy element ĐỨNG TRƯỚC this, this ở đây là input
                 if (e.type === 'blur') { // khi ấn chuột ra ngoài
                     if (this.value === '') { // không có value trong input thì đưa label lại như cũ
@@ -311,7 +311,7 @@ function setupEventTaiKhoan() {
     var tab = document.getElementsByClassName('tab');
     for (var i = 0; i < tab.length; i++) {
         var a = tab[i].getElementsByTagName('a')[0];
-        a.addEventListener('click', function (e) {
+        a.addEventListener('click', function(e) {
             e.preventDefault(); // tắt event mặc định
 
             // Thêm active(màu xanh lá) cho li chứa tag a này => ấn login thì login xanh, signup thì signup sẽ xanh
@@ -387,7 +387,7 @@ function stringToNum(str, char) {
 function autocomplete(inp, arr) {
     var currentFocus;
 
-    inp.addEventListener("keyup", function (e) {
+    inp.addEventListener("keyup", function(e) {
         if (e.keyCode != 13 && e.keyCode != 40 && e.keyCode != 38) { // not Enter,Up,Down arrow
             var a, b, i, val = this.value;
 
@@ -422,7 +422,7 @@ function autocomplete(inp, arr) {
                     b.innerHTML += "<input type='hidden' value='" + arr[i].name + "'>";
 
                     /*execute a function when someone clicks on the item value (DIV element):*/
-                    b.addEventListener("click", function (e) {
+                    b.addEventListener("click", function(e) {
                         /*insert the value for the autocomplete text field:*/
                         inp.value = this.getElementsByTagName("input")[0].value;
                         inp.focus();
@@ -438,7 +438,7 @@ function autocomplete(inp, arr) {
 
     });
     /*execute a function presses a key on the keyboard:*/
-    inp.addEventListener("keydown", function (e) {
+    inp.addEventListener("keydown", function(e) {
         var x = document.getElementById(this.id + "autocomplete-list");
         if (x) x = x.getElementsByTagName("div");
         if (e.keyCode == 40) {
@@ -493,7 +493,7 @@ function autocomplete(inp, arr) {
         }
     }
     /*execute a function when someone clicks in the document:*/
-    document.addEventListener("click", function (e) {
+    document.addEventListener("click", function(e) {
         closeAllLists(e.target);
     });
 }
@@ -509,10 +509,10 @@ function addTags(nameTag, link) {
 
 // Thêm sản phẩm vào trang
 function addProduct(p, ele, returnString) {
-	promo = new Promo(p.promo.name, p.promo.value); // class Promo
-	product = new Product(p.masp, p.name, p.img, p.price, p.star, p.rateCount, promo); // Class product
+    promo = new Promo(p.promo.name, p.promo.value); // class Promo
+    product = new Product(p.masp, p.name, p.img, p.price, p.star, p.rateCount, promo); // Class product
 
-	return addToWeb(product, ele, returnString);
+    return addToWeb(product, ele, returnString);
 }
 
 // Thêm topnav vào trang
@@ -724,7 +724,8 @@ function addPlc() {
 
 // https://stackoverflow.com/a/2450976/11898496
 function shuffleArray(array) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length,
+        randomIndex;
 
     // While there remain elements to shuffle...
     while (currentIndex != 0) {
@@ -735,14 +736,15 @@ function shuffleArray(array) {
 
         // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]
+        ];
     }
 
     return array;
 }
 
 function checkLocalStorage() {
-    if (typeof (Storage) == "undefined") {
+    if (typeof(Storage) == "undefined") {
         alert('Máy tính không hỗ trợ LocalStorage. Không thể lưu thông tin sản phẩm, khách hàng!!');
     } else {
         console.log('LocaStorage OKE!');
@@ -809,7 +811,7 @@ function auto_Get_Database() {
 }
 
 function getThongTinSanPhamFrom_TheGioiDiDong() {
-    javascript: (function () {
+    javascript: (function() {
         var s = document.createElement('script');
         s.innerHTML = `
 			(function () {
